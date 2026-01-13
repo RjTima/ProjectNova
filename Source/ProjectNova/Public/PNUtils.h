@@ -4,7 +4,7 @@ class PNUtils
 {
 public:
     template <typename T>
-    static T* GetPNPlayerComponent(APawn* PlayerPawn)
+    static T* GetPNPlayerComponent(AActor* PlayerPawn)
     {
         if (!PlayerPawn) return nullptr;
 
