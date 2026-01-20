@@ -21,7 +21,7 @@ public:
     	const auto PlayerState1 = Cast<APNPlayerState>(Controller1->PlayerState);
     	const auto PlayerState2 = Cast<APNPlayerState>(Controller2->PlayerState);
     	
-    	return  PlayerState1 && PlayerState2 && PlayerState1->GetTeamID() == PlayerState2->GetTeamID();
+    	return  PlayerState1 && PlayerState2 && PlayerState1->GetTeamID() != PlayerState2->GetTeamID();
     }
 	
 	static FText TextFromInt(int32 Number) { return FText::FromString(FString::FromInt(Number)); }
