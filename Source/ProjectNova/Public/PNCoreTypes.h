@@ -91,6 +91,25 @@ struct FImpactData
 };
 
 //Game
+
+USTRUCT(BlueprintType)
+struct FTeamMaterials
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Game|Team")
+	UMaterialInterface* Head = nullptr;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Game|Team")
+	UMaterialInterface* Limbs = nullptr;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Game|Team")
+	UMaterialInterface* Torso = nullptr;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Game|TeamUI")
+	UTexture2D* TeamIcon = nullptr;
+};
+
 USTRUCT(BlueprintType)
 struct FGameData
 {
@@ -99,17 +118,26 @@ struct FGameData
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Game", meta = (ClampMin = "1", ClampMax = "100"))
 	int32 PlayersNum = 3;
 	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Game|Team", meta=(ClampMin="1", ClampMax="5"))
+	int32 TeamsNum = 2;
+	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Game", meta = (ClampMin = "1", ClampMax = "10"))
 	int32 RoundsNum = 4;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Game", meta = (ClampMin = "3", ClampMax = "300"))
 	int32 RoundTime = 10; // seconds
 	
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	FLinearColor DefaultTeamColor = FLinearColor::Red;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Game|Team")
+	FTeamMaterials DefaultTeamMaterials;
 	
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	TArray<FLinearColor> TeamColors;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Game|Team")
+	TArray<FTeamMaterials> TeamMaterials;
+	
+	// UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	// FLinearColor DefaultTeamColor = FLinearColor::Red;
+	//
+	// UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	// TArray<FLinearColor> TeamColors;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Game", meta = (ClampMin = "3", ClampMax = "20"))
 	int32 RespawnTime = 5; // seconds
