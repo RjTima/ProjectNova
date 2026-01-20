@@ -1,9 +1,42 @@
-.vs
-.idea
+# --- IDE ---
+.vs/
+.idea/
+.vscode/
 *.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+*.user
+*.suo
+
+# --- Unreal generated ---
+Binaries/
 DerivedDataCache/
 Intermediate/
 Saved/
-Binaries/
-Build/
-Windows/
+Builds/Windows/
+
+# Plugins generated
+Plugins/**/Binaries/
+Plugins/**/Intermediate/
+Plugins/**/Saved/
+Plugins/**/DerivedDataCache/
+
+# --- Build artifacts / logs ---
+*.log
+*.tmp
+*.pdb
+*.ipch
+*.obj
+*.o
+*.exp
+*.ilk
+*.cache
+
+# --- OS / misc ---
+.DS_Store
+Thumbs.db
